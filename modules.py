@@ -24,7 +24,7 @@ def init(note='occlusion', dtype=torch.float32, **kwargs):
     # Create the folder for the current experiment
     mon, day, hour, min, sec = time.localtime(time.time())[1:6]
     out_dir = os.path.join('output', note)
-    out_dir = os.path.join(out_dir, '%02d.%02d-%02dh%02dm%02ds' %(mon, day, hour, min, sec))
+    out_dir = os.path.join(out_dir, 'gigacrowd') #os.path.join(out_dir, '%02d.%02d-%02dh%02dm%02ds' %(mon, day, hour, min, sec))
     if not os.path.exists(out_dir):
         os.makedirs(out_dir)
 
