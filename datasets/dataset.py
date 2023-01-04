@@ -35,7 +35,7 @@ class MyData(base):
                 if w > 33000 or h > 25000:
                     continue
                 pose2d, ins, bbox, pose3d, intri = [], [], [], [], []
-                img_path = frame['img_path']
+                img_path = frame['img_path'].replace('\\', '/')
                 self.imnames.append(img_path)
                 del frame['img_path']
                 del frame['h_w']

@@ -24,8 +24,8 @@ model: CLIFF # hmr
 mode: train # train/test/eval
 
 # Output
-save_mesh: True
-save_img: True
+save_mesh: False
+save_img: False
 
 # Use pretrain model and the corresponding path
 pretrain: True
