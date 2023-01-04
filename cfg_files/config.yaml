@@ -2,7 +2,7 @@
 note: origin_yanxu_zaiyanxu
 
 #project basic
-task: pseudo  # hmr relation
+task: pseudo  #
 
 #model basic
 gpu_index: 0
@@ -16,14 +16,16 @@ use_sch: True
 # The path for datasets and annotations
 data_folder: data
 
-# Human36M_MOSH MPII_CLIFF CrowdPose PennAction
-trainset: GigaCrowd #JTA
+trainset: GigaCrowd 
 
-# The name of model
+# Model name
 model: CLIFF # hmr 
 
 mode: train # train/test/eval
 
+# Output
+save_mesh: True
+save_img: True
 
 # Use pretrain model and the corresponding path
 pretrain: True

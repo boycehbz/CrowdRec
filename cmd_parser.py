@@ -89,7 +89,15 @@ def parse_config(argv=None):
     parser.add_argument('--viz',
                         default=False,
                         type=lambda x: x.lower() in ['true', '1'],
-                        help='True for visualize input.')
+                        help='True for visualizing input.')
+    parser.add_argument('--save_mesh',
+                        default=False,
+                        type=lambda x: x.lower() in ['true', '1'],
+                        help='True for visualizing output mesh.')
+    parser.add_argument('--save_img',
+                        default=False,
+                        type=lambda x: x.lower() in ['true', '1'],
+                        help='True for visualizing output rendered results.')
     parser.add_argument('--task',
                         default='ed_train',
                         type=str,

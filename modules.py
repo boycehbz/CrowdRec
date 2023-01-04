@@ -175,11 +175,13 @@ class LossLoader():
 
 
 class ModelLoader():
-    def __init__(self, dtype=torch.float32, output='', device=torch.device('cpu'), model=None, lr=0.001, pretrain=False, pretrain_dir='', batchsize=32, task=None, **kwargs):
+    def __init__(self, dtype=torch.float32, output='', device=torch.device('cpu'), model=None, lr=0.001, pretrain=False, pretrain_dir='', batchsize=32, task=None, save_mesh=False, save_img=False, **kwargs):
 
         self.output = output
         self.device = device
         self.batchsize = batchsize
+        self.save_mesh = save_mesh
+        self.save_img = save_img
 
         # load smpl model 
         self.model_smpl_gpu = SMPLModel(
@@ -272,14 +274,15 @@ class ModelLoader():
         if not os.path.exists(output):
             os.makedirs(output)
 
-        img_origin = results['imgs'][0]
-        img_origin = cv2.imread(img_origin)
-        img = img_origin.copy()
-        renderer = Renderer(focal_length=results['focal_length'][0], img_w=img.shape[1], img_h=img.shape[0],
-                            faces=self.model_smpl_gpu.faces,
-                            same_mesh_color=True)
-        front_view = renderer.render_front_view(results['pred_verts'],
-                                                bg_img_rgb=img.copy())
+        if self.save_img:
+            img_origin = results['imgs'][0]
+            img_origin = cv2.imread(img_origin)
+            img = img_origin.copy()
+            renderer = Renderer(focal_length=results['focal_length'][0], img_w=img.shape[1], img_h=img.shape[0],
+                                faces=self.model_smpl_gpu.faces,
+                                same_mesh_color=True)
+            front_view = renderer.render_front_view(results['pred_verts'],
+                                                    bg_img_rgb=img.copy())
 
         for index, (pred_verts, focal, imname, pose, shape, trans, keyps) in enumerate(zip(results['pred_verts'], results['focal_length'], results['instance'], results['pred_pose'], results['pred_shape'], results['pred_trans'], results['keypoints'])):
 
@@ -288,19 +291,22 @@ class ModelLoader():
             #         front_view = cv2.circle(front_view, tuple(kp[:2].astype(np.int)), 5, (0,0,255), -1)
 
             param_name = os.path.join(output, 'params/%s.pkl' %(imname))
-            self.save_pkl(param_name, {'pose':pose, 'betas':shape, 'trans':trans})
+            if not os.path.exists(param_name):
+                self.save_pkl(param_name, {'pose':pose, 'betas':shape, 'trans':trans})
 
-            mesh_name = os.path.join(output, 'meshes/%s.obj' %(imname))
-            self.model_smpl_gpu.write_obj(pred_verts, mesh_name)
+            if self.save_mesh:
+                mesh_name = os.path.join(output, 'meshes/%s.obj' %(imname))
+                self.model_smpl_gpu.write_obj(pred_verts, mesh_name)
 
-        # vis_img('img', front_view)
-        front_view = np.concatenate((front_view, img), axis=1)
-        render_name = "%s.jpg" % (imname.replace('/', '_').replace('\\', '_'))
-        cv2.imwrite(os.path.join(output, render_name), front_view)
+        if self.save_img:
+            # vis_img('img', front_view)
+            front_view = np.concatenate((front_view, img), axis=1)
+            render_name = "%s.jpg" % (imname.replace('/', '_').replace('\\', '_'))
+            cv2.imwrite(os.path.join(output, render_name), front_view)
 
-        renderer.delete()
-        # vis_img('pred_smpl', pred_smpl)
-        # vis_img('gt_smpl', gt_smpl)
+            renderer.delete()
+            # vis_img('pred_smpl', pred_smpl)
+            # vis_img('gt_smpl', gt_smpl)
 
 
 class DatasetLoader():
