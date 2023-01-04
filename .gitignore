@@ -6,6 +6,10 @@ __pycache__/
 # C extensions
 *.so
 
+output/
+data/
+pretrain_model/
+
 # Distribution / packaging
 .Python
 build/
