@@ -36,7 +36,7 @@ You can also visualize the reconstructed meshes and rendered images by setting:
 python main.py --save_mesh true --save_img true
 ```
 
-When the fitting is finished, you can generate ```predict.json``` from the fitted results with the following command.
+When the fitting is finished, the ```predict.json``` can be generated from the fitted results with the following command.
 ```
 python generate_json.py
 ```
