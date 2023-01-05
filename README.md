@@ -1,5 +1,6 @@
 # CrowdRec
 
+The code is tested on Windows10 and WSL2 (Windows Subsystem for Linux) with a NVIDIA GeForce RTX 3090 GPU and 64GB memory.
 ## Evaluation on GigaCrowd dataset
 
 ### Step 1. Download dataset
@@ -36,7 +37,7 @@ You can also visualize the reconstructed meshes and rendered images by setting:
 python main.py --save_mesh true --save_img true
 ```
 
-When the fitting is finished, the ```predict.json``` can be generated from the fitted results with the following command.
+When the fitting is finished, the ```predict.json``` can be generated in ```/workspace/output/results/results``` with the following command.
 ```
 python generate_json.py
 ```
