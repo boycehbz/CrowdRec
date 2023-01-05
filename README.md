@@ -3,7 +3,7 @@
 ## Evaluation on GigaCrowd dataset
 
 ### Step 1. Download dataset
-Download the test set from [GigaVision challenge website](https://www.gigavision.cn/track/track?nav=GigaCrowd&type=nav) and put the images in <YOUR/PATH> with following structure.
+Download the test set from [GigaVision challenge website](https://www.gigavision.cn/track/track?nav=GigaCrowd&type=nav) and put the images in <YOUR/PATH> with the following structure.
 
 ```
 ----images
@@ -23,13 +23,15 @@ docker pull boycehbz/gigacrowd:latest
 
 ### Step 3. Run the code
 ```
-docker container run --gpus all --rm -it -v <YOUR/PATH>/images:/workspace/data/GigaCrowd/images boycehbz/gigacrowd:latest
+docker container run --gpus all --rm \
+-it -v <YOUR/PATH>/images:/workspace/data/GigaCrowd/images \
+boycehbz/gigacrowd:latest
 ```
-
+Then you can execute the reconstruction.
 ```
 python main.py
 ```
-You can also visualize the reconstructed meshes and overlay images by setting:
+You can also visualize the reconstructed meshes and rendered images by setting:
 ```
 python main.py --save_mesh true --save_img true
 ```
