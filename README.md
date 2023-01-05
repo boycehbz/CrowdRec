@@ -1,6 +1,8 @@
 # CrowdRec
 
-The code is tested on Windows10 and WSL2 (Windows Subsystem for Linux) with a NVIDIA GeForce RTX 3090 GPU and 64GB memory.
+The code is tested on Windows10 and WSL2 (Windows Subsystem for Linux) with a NVIDIA GeForce RTX 3090 GPU and 64GB memory.<br>
+(To accelerate the fitting, we use 7 RTX 3090 and 3 TITAN RTX cards during the GigaCrowd Challenge Season 2022.)
+
 ## Evaluation on GigaCrowd dataset
 
 ### Step 1. Download dataset
