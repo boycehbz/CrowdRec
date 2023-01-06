@@ -19,9 +19,12 @@ Download the test set from [GigaVision challenge website](https://www.gigavision
     |---stadiumEntrance_01
 ```
 
-### Step 2. Pull code from docker hub
+### Step 2. Load docker image
 ```
-docker pull boycehbz/gigacrowd:latest
+tar -zxvf gigacrowd.tar.gz
+```
+```
+docker load < gigacrowd.tar
 ```
 
 ### Step 3. Run the code
@@ -33,10 +36,6 @@ boycehbz/gigacrowd:latest
 Then you can execute the reconstruction.
 ```
 python main.py
-```
-You can also visualize the reconstructed meshes and rendered images by setting:
-```
-python main.py --save_mesh true --save_img true
 ```
 
 When the fitting is finished, the ```predict.json``` can be generated in ```/workspace/output/results/results``` with the following command.
