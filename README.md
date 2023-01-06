@@ -33,7 +33,7 @@ docker container run --gpus all --rm \
 -it -v <YOUR/PATH>/images:/workspace/data/GigaCrowd/images \
 boycehbz/gigacrowd:latest
 ```
-Then you can execute the reconstruction.
+Then you can execute the reconstruction. The SMPL parameters for each person will be saved in ```/workspace/output/final/gigacrowd/images```.
 ```
 python main.py
 ```
