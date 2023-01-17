@@ -245,6 +245,9 @@ class ModelLoader():
         self.optimizer = optim.AdamW(filter(lambda p:p.requires_grad, self.model.parameters()), lr=lr)
         self.scheduler = CyclicLRWithRestarts(optimizer=self.optimizer, batch_size=self.batchsize, epoch_size=1, restart_period=20, t_mult=2, policy="cosine", verbose=True)
 
+    def reload_scheduler(self):
+        self.scheduler = CyclicLRWithRestarts(optimizer=self.optimizer, batch_size=self.batchsize, epoch_size=1, restart_period=140, t_mult=2, policy="cosine", verbose=True)
+
     def save_pkl(self, path, result):
         """"
         save pkl file

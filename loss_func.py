@@ -37,7 +37,7 @@ class SMPL_Loss(nn.Module):
         gt_rotmat_valid = batch_rodrigues(gt_pose.view(-1,3)).view(-1, 24, 3, 3)
 
         pred_betas_valid = pred_betas
-        gt_betas_valid = gt_betas
+        gt_betas_valid = torch.zeros_like(gt_betas, dtype=gt_betas.dtype, device=gt_betas.device)
         if len(pred_rotmat_valid) > 0:
             loss_regr_pose = self.criterion_regr(pred_rotmat_valid, gt_rotmat_valid)
             loss_regr_betas = self.criterion_regr(pred_betas_valid, gt_betas_valid)

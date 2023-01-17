@@ -11,7 +11,7 @@ import numpy as np
 import cv2
 from tqdm import tqdm
 import time
-
+import os
 from utils.imutils import cam_crop2full
 
 
@@ -31,7 +31,7 @@ def pseudo_train(model, loss_func, train_loader, epoch, num_epoch, device=torch.
     len_data = len(train_loader)
     # model.model.train(mode=True)
     model.model.eval()
-
+    origin_name = None
     train_loss = 0.
     for i, data in tqdm(enumerate(train_loader), total=len(train_loader)):
         # if i < 244:
@@ -39,11 +39,22 @@ def pseudo_train(model, loss_func, train_loader, epoch, num_epoch, device=torch.
         batchsize = data["norm_img"].shape[0]
         data = to_device(data, device)
 
-        model.reload_optimizer(0.00001)
+        cur_name = data['origin_img'][0]
+        if origin_name != cur_name:
+            origin_name = cur_name
+            model.reload_optimizer(0.00001)
+            total_count = 260
+        else:
+            model.reload_scheduler()
+            total_count = 100
+
+        # model.reload_optimizer(0.00001)
+        # total_count = 260
+
         model.model.init_trans = None
 
         losses = []
-        total_count = 260
+        
         count = 0
         not_fitted = True
 
