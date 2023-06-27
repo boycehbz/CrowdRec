@@ -19,6 +19,7 @@ from utils.smpl_torch_batch import SMPLModel
 from utils.renderer_pyrd import Renderer
 import cv2
 import pickle
+from utils.module_utils import save_camparam
 
 def init(note='occlusion', dtype=torch.float32, **kwargs):
     # Create the folder for the current experiment
@@ -294,8 +295,7 @@ class ModelLoader():
             #         front_view = cv2.circle(front_view, tuple(kp[:2].astype(np.int)), 5, (0,0,255), -1)
 
             param_name = os.path.join(output, 'params/%s.pkl' %(imname))
-            if not os.path.exists(param_name):
-                self.save_pkl(param_name, {'pose':pose, 'betas':shape, 'trans':trans})
+            self.save_pkl(param_name, {'pose':pose, 'betas':shape, 'trans':trans})
 
             if self.save_mesh:
                 mesh_name = os.path.join(output, 'meshes/%s.obj' %(imname))
@@ -310,6 +310,14 @@ class ModelLoader():
             renderer.delete()
             # vis_img('pred_smpl', pred_smpl)
             # vis_img('gt_smpl', gt_smpl)
+
+        intri = np.eye(3)
+        intri[0][0] = results['focal_length'][0]
+        intri[1][1] = results['focal_length'][0]
+        intri[0][2] = img.shape[1] / 2
+        intri[1][2] = img.shape[0] / 2
+        cam_name = "%s.txt" % (imname.replace('/', '_').replace('\\', '_'))
+        save_camparam(os.path.join(output, 'camparams', cam_name), [intri], [np.eye(4)])
 
 
 class DatasetLoader():

@@ -64,6 +64,9 @@ def pseudo_train(model, loss_func, train_loader, epoch, num_epoch, device=torch.
 
             pred = model.model(data)
 
+            if total_count == 0:
+                break
+
             if 'pose' not in data.keys():
                 data['pose'] = pred['pred_pose'].detach()
                 data['betas'] = pred['pred_shape'].detach()
