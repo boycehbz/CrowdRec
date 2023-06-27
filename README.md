@@ -1,9 +1,8 @@
 # CrowdRec
 
 The code is tested on Windows 10 and WSL2 (Windows Subsystem for Linux) with an NVIDIA GeForce RTX 3090 GPU and 64GB memory.<br>
-(To accelerate the fitting, we use 7 RTX 3090 and 3 TITAN RTX cards during the GigaCrowd Challenge Season 2022.)
 
-## Evaluation on GigaCrowd dataset
+## Evaluation on GigaCrowd dataset with Docker
 
 ### Step 1. Download dataset
 Download the test set from [GigaVision challenge website](https://www.gigavision.cn/track/track?nav=GigaCrowd&type=nav) and put the images in <YOUR/PATH> with the following structure.
@@ -20,6 +19,7 @@ Download the test set from [GigaVision challenge website](https://www.gigavision
 ```
 
 ### Step 2. Load docker image
+You can obtain the docker image from [here](https://pan.baidu.com/s/1Ye9VQ3vOx4qahSOdY81q4w?pwd=k77l).
 ```
 tar -zxvf gigacrowd.tar.gz
 ```
