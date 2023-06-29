@@ -6,6 +6,8 @@ The code for the 1st place solution of [2022 GigaCrowd challenge](https://gigavi
 > [Buzhen Huang](http://www.buzhenhuang.com/), Jingyi Ju, [Yangang Wang](https://www.yangangwang.com/#me)<br>
 > \[[Paper](https://arxiv.org/pdf/2110.10355.pdf)\]<br>
 
+![figure](/assets/teaser.jpg)
+
 The code is tested on Windows 10 and WSL2 (Windows Subsystem for Linux) with an NVIDIA GeForce RTX 3090 GPU and 64GB memory.<br>
 
 ## Demo
