@@ -55,7 +55,6 @@ def main(**args):
     # Load handle function with the task name
     task = args.get('task')
     exec('from process import %s_train' %task)
-    exec('from process import %s_test' %task)
 
     for epoch in range(num_epoch):
         # training mode

@@ -112,36 +112,3 @@ def pseudo_train(model, loss_func, train_loader, epoch, num_epoch, device=torch.
         model.save_results(results, i, batchsize)
 
     return train_loss/len_data
-
-def pseudo_test(model, loss_func, loader, device=torch.device('cpu')):
-
-    print('-' * 10 + 'model testing' + '-' * 10)
-    loss_all = 0.
-    model.model.eval()
-    with torch.no_grad():
-        for i, data in enumerate(loader):
-            batchsize = data['img'].shape[0]
-            data['img'] = data['img'].to(device)
-            data['joints'] = data['joints'].to(device)
-            data['pred_keypoints'] = data['pred_keypoints'].to(device)
-
-            # forward
-            pred = model.model(data['pred_keypoints'], data['img'])
-
-            # calculate loss
-            loss, cur_loss_dict = loss_func.calcul_testloss(pred, data)
-            
-            if i < 1:
-                results = {}
-                results.update(imgs=data['origin_img'].detach().cpu().numpy().astype(np.float32))
-                results.update(pred_verts=pred['pred_verts'].detach().cpu().numpy().astype(np.float32))
-                results.update(gt_verts=data['verts'].detach().cpu().numpy().astype(np.float32))
-                results.update(pred_cam_t=pred['pred_cam_t'].detach().cpu().numpy().astype(np.float32))
-                results.update(gt_cam_t=data['gt_cam_t'].detach().cpu().numpy().astype(np.float32))
-                model.save_results(results, i, batchsize)
-
-            loss_batch = loss.detach() #/ batchsize
-            print('batch: %d/%d, loss: %.6f ' %(i, len(loader), loss_batch), cur_loss_dict)
-            loss_all += loss_batch
-        loss_all = loss_all / len(loader)
-        return loss_all

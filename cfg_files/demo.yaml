@@ -1,0 +1,41 @@
+# experiment name
+note: demo
+
+#project basic
+task: pseudo  #
+
+#model basic
+gpu_index: 0
+lr: 0.00001
+batchsize: 1
+epoch: 1
+worker: 0
+use_sch: True
+
+#********dataset*********#
+# The path for datasets and annotations
+data_folder: demo
+
+trainset: GigaCrowd 
+
+# Model name
+model: CLIFF # hmr 
+
+mode: train # train/test/eval
+
+# Output
+save_mesh: True
+save_img: True
+
+# Use pretrain model and the corresponding path
+pretrain: True
+pretrain_dir: pretrain_model/trained.pt
+
+# The name of your training loss function
+# Split different names with a single space
+# e.g., KL_Loss MPJPE L1 L2
+train_loss: SMPL_Loss Keyp_Loss Height_Loss #SMPL_Loss Keyp_Loss Mesh_Loss #Keyp_Loss Joint_Loss # SMPL_Loss Keyp_Loss Mesh_Loss Joint_Loss
+test_loss: MPJPE #MPJPE
+
+#visualize
+viz: False
