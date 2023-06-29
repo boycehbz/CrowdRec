@@ -1,13 +1,21 @@
 # CrowdRec
 
-CrowdRec: 3D Crowd Reconstruction from Single Color Images<br>
-[Buzhen Huang](http://www.buzhenhuang.com/), Jingyi Ju, [Yangang Wang](https://www.yangangwang.com/#me)<br>
-[Paper]()<br>
+The code for the 1st place solution of [2022 GigaCrowd challenge](https://gigavision.cn/track/track/?nav=GigaCrowd&type=nav&t=1678150678599).<br>
 
-This project won the 1st place in [2022 GigaCrowd challenge](https://gigavision.cn/track/track/?nav=GigaCrowd&type=nav&t=1678150678599). The code is tested on Windows 10 and WSL2 (Windows Subsystem for Linux) with an NVIDIA GeForce RTX 3090 GPU and 64GB memory.<br>
+> CrowdRec: 3D Crowd Reconstruction from Single Color Images<br>
+> [Buzhen Huang](http://www.buzhenhuang.com/), Jingyi Ju, [Yangang Wang](https://www.yangangwang.com/#me)<br>
+> \[[Paper](https://arxiv.org/pdf/2110.10355.pdf)\]<br>
+
+The code is tested on Windows 10 and WSL2 (Windows Subsystem for Linux) with an NVIDIA GeForce RTX 3090 GPU and 64GB memory.<br>
 
 ## Demo
 
+### Installation
+
+### Getting Started
+```
+python demo.py --config cfg_files/demo.yaml
+```
 
 
 ## Evaluation on GigaCrowd dataset with Docker

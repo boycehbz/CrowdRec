@@ -1,5 +1,5 @@
 # experiment name
-note: final
+note: test
 
 #project basic
 task: pseudo  #
@@ -9,7 +9,7 @@ gpu_index: 0
 lr: 0.00001
 batchsize: 1
 epoch: 1
-worker: 3
+worker: 0
 use_sch: True
 
 #********dataset*********#
