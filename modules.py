@@ -583,10 +583,10 @@ class CrowdRec(object):
         if self.origin_name != cur_name:
             self.origin_name = cur_name
             self.model.reload_optimizer(0.00001)
-            total_count = 260
+            total_count = 100
         else:
             self.model.reload_scheduler()
-            total_count = 100
+            total_count = 50
 
         self.model.model.init_trans = None
 
