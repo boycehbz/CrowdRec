@@ -1,6 +1,14 @@
 # CrowdRec
 
-The code is tested on Windows 10 and WSL2 (Windows Subsystem for Linux) with an NVIDIA GeForce RTX 3090 GPU and 64GB memory.<br>
+CrowdRec: 3D Crowd Reconstruction from Single Color Images<br>
+[Buzhen Huang](http://www.buzhenhuang.com/), Jingyi Ju, [Yangang Wang](https://www.yangangwang.com/#me)<br>
+[Paper]()<br>
+
+This project won the 1st place in [2022 GigaCrowd challenge](https://gigavision.cn/track/track/?nav=GigaCrowd&type=nav&t=1678150678599). The code is tested on Windows 10 and WSL2 (Windows Subsystem for Linux) with an NVIDIA GeForce RTX 3090 GPU and 64GB memory.<br>
+
+## Demo
+
+
 
 ## Evaluation on GigaCrowd dataset with Docker
 

@@ -12,7 +12,7 @@ import numpy as np
 import cv2
 from utils.imutils import surface_projection, vis_img
 from datasets.base import base
-import constants
+import utils.constants as constants
 
 
 class MyData(base):

@@ -8,9 +8,9 @@
 import torch
 import os
 from torch.utils.data import DataLoader
-from cmd_parser import parse_config
+from utils.cmd_parser import parse_config
 from utils.module_utils import seed_worker, set_seed
-from modules import init, LossLoader, ModelLoader, DatasetLoader
+from utils.modules import init, LossLoader, ModelLoader, DatasetLoader
 from utils.logger import savefig
 
 ###########Load config file in debug mode#########
@@ -54,7 +54,7 @@ def main(**args):
 
     # Load handle function with the task name
     task = args.get('task')
-    exec('from process import %s_train' %task)
+    exec('from utils.process import %s_train' %task)
 
     for epoch in range(num_epoch):
         # training mode

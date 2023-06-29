@@ -10,7 +10,7 @@ import torch
 import os
 import numpy as np
 from torchvision.transforms import Normalize
-import constants
+import utils.constants as constants
 import pickle
 import cv2
 from utils.geometry import estimate_translation_np

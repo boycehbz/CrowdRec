@@ -7,8 +7,8 @@
 '''
 
 import torch
-from cmd_parser import parse_config
-from modules import init, LossLoader, ModelLoader, CrowdRec
+from utils.cmd_parser import parse_config
+from utils.modules import init, LossLoader, ModelLoader, CrowdRec
 from yolox.yolox import Predictor
 from alphapose.alphapose_core import AlphaPose_Predictor
 

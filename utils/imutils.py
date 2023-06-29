@@ -6,7 +6,7 @@ import numpy as np
 import scipy.misc
 import cv2
 
-import constants
+import utils.constants as constants
 
 def draw_keyp(img, joints, color=None, format='coco17', thickness=3):
     skeletons = {'coco17':[[0,1],[1,3],[0,2],[2,4],[5,6],[5,7],[7,9],[6,8],[8,10],[5,11],[11,13],[13,15],[6,12],[12,14],    [14,16],[11,12]],

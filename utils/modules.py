@@ -11,7 +11,7 @@ import time
 import yaml
 from utils.imutils import vis_img
 from utils.logger import Logger
-from loss_func import *
+from utils.loss_func import *
 import torch.optim as optim
 from utils.cyclic_scheduler import CyclicLRWithRestarts
 from datasets.dataset import MyData
@@ -20,8 +20,8 @@ from utils.renderer_pyrd import Renderer
 import cv2
 import pickle
 from utils.module_utils import save_camparam
-import constants
-from process import to_device
+import utils.constants as constants
+from utils.process import to_device
 import math
 
 def init(note='occlusion', dtype=torch.float32, **kwargs):
