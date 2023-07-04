@@ -13,6 +13,33 @@ The code is tested on Windows 10 and WSL2 (Windows Subsystem for Linux) with an 
 ## Demo
 
 ### Installation
+Create conda environment and install dependencies.
+```
+conda create -n crowdrec python=3.8
+pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu111 # install pytorch
+pip install -r requirements.txt
+```
+Download pycocotools from [cocoapi](https://github.com/philferriere/cocoapi) for win10, and install this package:
+```
+cd/d cocoapi/PythonAPI
+python setup.py build_ext --inplace
+python setup.py build_ext install
+```
+Due to the licenses, please download SMPL model file [here](http://smplify.is.tuebingen.mpg.de/).
+
+Download the pretrain models from [pretrain_model](https://pan.baidu.com/s/1-_K3W_ImI3ESl4uygtKV-w?pwd=06le).
+
+Finally put these data following the structure as below:
+```
+${ROOT}
+|---data
+    |---SMPL_NEUTRAL.pkl
+    |---...
+|---pretrain_model
+    |---bytetrack_x_mot17.pth.tar
+    |---halpe26_fast_res50_256x192.pth
+    |---trained.pt
+```
 
 ### Getting Started
 ```
@@ -26,7 +53,7 @@ python demo.py --config cfg_files/demo.yaml
 Download the test set from [GigaVision challenge website](https://www.gigavision.cn/track/track?nav=GigaCrowd&type=nav) and put the images in <YOUR/PATH> with the following structure.
 
 ```
-----images
+|---images
     |---playground1_00
         |---playground1_00_000000.jpg
         |---playground1_00_001740.jpg
