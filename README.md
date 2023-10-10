@@ -3,8 +3,8 @@
 The code for the 1st place solution of [2022 GigaCrowd challenge](https://gigavision.cn/track/track/?nav=GigaCrowd&type=nav&t=1678150678599).<br>
 
 > CrowdRec: 3D Crowd Reconstruction from Single Color Images<br>
-> [Buzhen Huang](http://www.buzhenhuang.com/), Jingyi Ju, [Yangang Wang](https://www.yangangwang.com/#me)<br>
-> \[[Paper](https://arxiv.org/pdf/2110.10355.pdf)\]<br>
+> [Buzhen Huang](http://www.buzhenhuang.com/), [Jingyi Ju](https://me-ditto.github.io/), [Yangang Wang](https://www.yangangwang.com/#me)<br>
+> \[[Paper]()\]<br>
 
 ![figure](/assets/teaser.jpg)
 
@@ -87,3 +87,22 @@ When the fitting is finished, the ```predict.json``` can be generated in ```/wor
 ```
 python generate_json.py
 ```
+
+## Citation
+If you find this code useful for your research, please consider citing the following paper.
+```
+@inproceedings{grouprec,
+title={Reconstructing Groups of People with Hypergraph Relational Reasoning},
+author={Huang, Buzhen and Ju, Jingyi and Li, Zhihao and Wang, Yangang},
+booktitle={ICCV},
+year={2023},
+}
+```
+
+## Acknowledgments
+Some of the code are based on the following works. We gratefully appreciate the impact it has on our work.<br>
+[GroupRec](https://github.com/boycehbz/GroupRec)<br>
+[CLIFF](https://github.com/huawei-noah/noah-research/tree/master/CLIFF)<br>
+[ByteTrack](https://github.com/ifzhang/ByteTrack)<br>
+[YOLOX](https://github.com/Megvii-BaseDetection/YOLOX)<br>
+
