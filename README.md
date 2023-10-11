@@ -4,7 +4,7 @@ The code for the 1st place solution of [2022 GigaCrowd challenge](https://gigavi
 
 > CrowdRec: 3D Crowd Reconstruction from Single Color Images<br>
 > [Buzhen Huang](http://www.buzhenhuang.com/), [Jingyi Ju](https://me-ditto.github.io/), [Yangang Wang](https://www.yangangwang.com/#me)<br>
-> \[[Paper]()\]<br>
+> \[[Paper](https://arxiv.org/abs/2310.06332)\]<br>
 
 ![figure](/assets/teaser.jpg)
 
@@ -91,6 +91,14 @@ python generate_json.py
 ## Citation
 If you find this code useful for your research, please consider citing the following paper.
 ```
+@misc{huang2023crowdrec,
+title={CrowdRec: 3D Crowd Reconstruction from Single Color Images}, 
+author={Buzhen Huang and Jingyi Ju and Yangang Wang},
+year={2023},
+eprint={2310.06332},
+archivePrefix={arXiv},
+primaryClass={cs.CV}
+}
 @inproceedings{grouprec,
 title={Reconstructing Groups of People with Hypergraph Relational Reasoning},
 author={Huang, Buzhen and Ju, Jingyi and Li, Zhihao and Wang, Yangang},
